@@ -40,6 +40,11 @@ public class Goal {
 	 */
 	private int weight;
 
+	@SuppressWarnings("unused")
+	private Goal(){
+		// for spring/jackson
+	}
+	
 	/**
 	 * Creates a basic goal with a name and no dueDate.
 	 * 

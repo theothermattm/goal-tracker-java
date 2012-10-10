@@ -3,6 +3,7 @@ package com.theothermattm.goal.service;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.theothermattm.goal.domain.Goal;
@@ -22,6 +23,7 @@ public class GoalServiceDefaultImpl implements GoalService {
 
 	private GoalRepository goalRepository;
 
+	@Autowired
 	public GoalServiceDefaultImpl(GoalRepository goalRepository) {
 		this.goalRepository = goalRepository;
 	}

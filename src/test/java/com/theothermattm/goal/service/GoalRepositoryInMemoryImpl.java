@@ -43,7 +43,7 @@ public class GoalRepositoryInMemoryImpl implements GoalRepository {
 	@Override
 	public List<Goal> getGoals() {
 
-		LOG.warn("Retrieving all goals from IN MEMROY repository...");
+		LOG.warn("Retrieving all goals from IN MEMORY repository...");
 
 		List<Goal> goalList = new ArrayList<Goal>();
 
