@@ -2,8 +2,13 @@ package com.theothermattm.goal.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import org.apache.commons.lang.Validate;
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Represents a simple goal
@@ -11,11 +16,15 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  * @author mattm
  * 
  */
+@Entity
 public class Goal {
 
 	/**
 	 * A unique identifier for the goal.
 	 */
+	@Id
+	@GeneratedValue(generator = "system-uuid")
+	@GenericGenerator(name="system-uuid", strategy="uuid")
 	private String id;
 
 	/**
@@ -41,10 +50,10 @@ public class Goal {
 	private int weight;
 
 	@SuppressWarnings("unused")
-	private Goal(){
+	private Goal() {
 		// for spring/jackson
 	}
-	
+
 	/**
 	 * Creates a basic goal with a name and no dueDate.
 	 * 

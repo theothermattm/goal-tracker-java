@@ -11,6 +11,7 @@
       <org.springframework-version>3.1.1.RELEASE</org.springframework-version>
       <java.version>1.6</java.version>
       <org.slf4j-version>1.6.1</org.slf4j-version>
+      <hibernate.version>4.1.7.Final</hibernate.version>
   </properties>
   
   <dependencies>
@@ -20,15 +21,14 @@
 			<version>2.6</version>
 		</dependency>
 		
+		<!-- add support for json -->
 		<dependency>
 		  <groupId>org.codehaus.jackson</groupId>
 		  <artifactId>jackson-mapper-asl</artifactId>
 		  <version>1.9.10</version>
 		</dependency>
-
-		<!-- !!!!!!!!!!!!!! -->
+		
 		<!-- Servlet -->
-		<!-- !!!!!!!!!!!!!! -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -42,9 +42,7 @@
 			<scope>provided</scope>
 		</dependency>
 		
-		<!-- !!!!!!!!!!!!!! -->
 		<!-- Logging -->
-		<!-- !!!!!!!!!!!!!! -->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
@@ -53,7 +51,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.9</version>
+			<version>1.2.16</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -66,9 +64,7 @@
 		  <version>${org.slf4j-version}</version>
 		</dependency>
 
-		<!-- !!!!!!!!!!!!!! -->
 		<!-- Spring framework dependencies -->
-		<!-- !!!!!!!!!!!!!! -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -88,11 +84,23 @@
 		  <groupId>cglib</groupId>
 		  <artifactId>cglib</artifactId>
 		  <version>2.2.2</version>
+		  <scope>runtime</scope>
 		</dependency>	
 		
-		<!-- !!!!!!!!!!!!!! -->
+		<!-- persistence dependencies -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+
 		<!-- TEST dependencies -->
-		<!-- !!!!!!!!!!!!!! -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -111,6 +119,13 @@
 			<version>1.3</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.2.8</version>
+			<scope>test</scope>
+		</dependency>
+		
 	</dependencies>
   
   <build>
